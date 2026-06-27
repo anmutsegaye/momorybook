@@ -40,7 +40,7 @@ document.getElementById("memoryForm").addEventListener("submit", function (e) {
 
         localStorage.setItem("memories", JSON.stringify(memories));
         localStorage.removeItem("editIndex");
-        window.location.href = "indexx.html";
+        window.location.href = "index.html";
     };
 
     // If a new photo is selected, use it
