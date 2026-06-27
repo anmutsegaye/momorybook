@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <script src="firebase.js"></script>
+</head>
+
+<body>
+  <h2>Login / Signup</h2>
+
+  <input id="email" type="email" placeholder="Email"><br><br>
+  <input id="password" type="password" placeholder="Password"><br><br>
+
+  <button onclick="signup()">Sign Up</button>
+  <button onclick="login()">Login</button>
+
+  <p id="msg"></p>
+
+<script>
+function signup() {
+  auth.createUserWithEmailAndPassword(
+    email.value,
+    password.value
+  ).then(() => {
+    msg.innerText = "Account created!";
+  }).catch(e => msg.innerText = e.message);
+}
+
+function login() {
+  auth.signInWithEmailAndPassword(
+    email.value,
+    password.value
+  ).then(() => {
+    localStorage.setItem("user", email.value);
+    window.location.href = "indexx.html";
+  }).catch(e => msg.innerText = e.message);
+}
+</script>
+
+</body>
+</html>
